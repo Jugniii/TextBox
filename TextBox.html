@@ -17,7 +17,9 @@
 		<button type="button" onclick="transformLowerCase()">LOWERCASE</button>
 		<button type="button" onclick="findText()">FIND</button>
 		<button type="button" onclick="changeColor()">CHANGE COLOR</button>
-		<button type="button" onclick="textUnderline()">UNDERLINE</button><br><br>
+		<button type="button" onclick="textUnderline()">UNDERLINE</button>
+		<button type="button" onclick="copyText()">COPY</button>
+		<br><br>
 		<h2 id="textinfo">This Text contains 0 words and 0 characters</h2>
 		
 	</form>
@@ -40,9 +42,9 @@
 		let searchText=prompt("Enter the text :");
 		if(text.value.includes(searchText))
 		{
-			alert(Search text "${searchText}" is present);
+			alert(`Search text "${searchText}" is present`);
 		}else{
-			alert(Search text "${searchText}" is not present);
+			alert(`Search text "${searchText}" is not present`);
 		}
 	}
 
@@ -55,8 +57,12 @@
 	}
 	function updateInfo(){
 		let numberOfWords=text.value.trim().split(" ").length
-		textInfo.innerHTML='This text contains ${numberOfWords} words and' ${text.value.length}
-		charcters
+		textInfo.innerHTML=`This text contains ${numberOfWords} words and ${text.value.length}
+		charcters`
+	}
+	function copyText()
+	{
+		navigator.clipboard.writeText(text.value)
 	}
 </script>
 </body>
